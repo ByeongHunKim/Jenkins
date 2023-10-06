@@ -41,9 +41,9 @@ docker-compose version
 ### 1. aws jenkins instance elastic IP setting
 
 ### 2. aws Route53 domain A record setting
-- ip : elastic IP
+- ip : elastic IP of jenkins instance
 
-### 3. aws jenkins instance PUBLIC-WEB-SERVICE sg 추가
+### 3. add PUBLIC-WEB-SERVICE sg into aws jenkins instance
 
 ### 4. docker-compose up -d
 ### 5. docker container log check
