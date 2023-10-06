@@ -1,0 +1,28 @@
+version: '3.2'
+
+services:
+  nginx:
+    container_name: ${PROJECT_NAME}_nginx
+    image: jonasal/nginx-certbot:latest
+    restart: unless-stopped
+    environment:
+      - CERTBOT_EMAIL=${MY_CERTBOT_EMAIL}
+      # - STAGING=1  # for testing (ref: https://github.com/JonasAlfredsson/docker-nginx-certbot/blob/master/docs/good_to_know.md#initial-testing)
+      # - DEBUG=1    # for testing
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - /home/ec2-user/nginx/letsencrypt:/etc/letsencrypt
+      - /home/ec2-user/nginx/user_conf.d:/etc/nginx/user_conf.d
+  jenkins:
+    container_name: ${PROJECT_NAME}_jenkins
+    image: jenkins/jenkins:2.401.3
+    restart: unless-stopped
+    privileged: true
+    user: root
+    ports:
+      - '8080:8080'
+    volumes:
+      - /home/ec2-user/jenkins:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
