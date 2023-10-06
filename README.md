@@ -77,4 +77,6 @@ docker-compose version
 
 - Docker CommonsVersion
 
-- ocker Pipeline
+- Docker Pipeline
+
+- Publish Over SSH
