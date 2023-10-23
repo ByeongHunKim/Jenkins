@@ -29,6 +29,13 @@ docker-compose version
   cp -av ./server.conf ~/nginx/user_conf.d/server.conf
   ```
 
+### Push docker image to public repository
+```bash
+docker buildx build --platform=linux/arm64,linux/amd64 --push -t hunsman/jenkins-plus:[tag] .
+# latest tag : v1.0.1
+```
+
+
 ### run docker
   ```bash
   export PROJECT_NAME= 
