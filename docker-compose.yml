@@ -17,7 +17,7 @@ services:
       - /home/ec2-user/nginx/user_conf.d:/etc/nginx/user_conf.d
   jenkins:
     container_name: ${PROJECT_NAME}_jenkins
-    image: jenkins/jenkins:2.401.3
+    image: hunsman/jenkins-plus:v1.0.0
     restart: unless-stopped
     privileged: true
     user: root
